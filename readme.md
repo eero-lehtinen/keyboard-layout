@@ -8,6 +8,7 @@ Modifications:
 - `{`, `}`, `[` and `]` are moved to the left of `Enter` (no longer a dead key)
 - `\` and `|` are moved to the right of `?` (no longer a dead key)
 - Numpad `,` is changed to `.`
+- `å` and `Å` are still accessible with `AltGr + o` and `AltGr + Shift + o`
 
 Everything else is the same as the default Finnish layout.
 
