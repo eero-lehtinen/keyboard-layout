@@ -1,6 +1,6 @@
 # Modified Finnish Keyboard Layout for Programmers
 
-Inspired by https://github.com/ruohola/finner. Finner layout includes a lot of modifications (AltGr combined with almost any key produces a special character) and uses a US board as a base. This layout does the relevant modifications without touching anything else.
+Inspired by https://github.com/ruohola/finner. Finner layout includes a lot of modifications (AltGr combined with almost any key produces a special character) and uses a US board as a base. This layout only does the relevant modifications without touching anything else.
 
 Modifications:
 - `~` and `` ` `` are moved to the left of 1.
@@ -13,3 +13,12 @@ Modifications:
 Everything else is the same as the default Finnish layout.
 
 ![Keyboard layout](keyboard.png)
+
+
+## Installation
+- Install [Microsoft Keyboard Layout Creator](https://www.microsoft.com/en-us/download/details.aspx?id=102134)
+- `File > Load Source File...` and select `finprog.klc`
+- `Project > Build DLL and Setup Package` and run the resulting `setup.exe`
+
+## Uninstallation
+Remove the layout from the list of installed layouts in settings and uninstall it from Programs menu.
