@@ -5,10 +5,10 @@ Inspired by https://github.com/ruohola/finner. Finner layout includes a lot of m
 Modifications:
 - `~` and `` ` `` are moved to the left of 1.
 - `^` is moved to `Shift + 4`
-- `{`, `}`, `[` and `]` are moved to the left of `Enter` (they are no longer dead keys)
-- `\` and `|` are moved to the right of `?` (they are no longer dead keys)
+- `{`, `}`, `[` and `]` are moved to the left of `Enter` (no longer a dead key)
+- `\` and `|` are moved to the right of `?` (no longer a dead key)
 - Numpad `,` is changed to `.`
 
-Everyting else is the same as the default Finnish layout.
+Everything else is the same as the default Finnish layout.
 
 ![Keyboard layout](keyboard.png)
