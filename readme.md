@@ -1,6 +1,6 @@
 # Modified Finnish Keyboard Layout for Programmers
 
-Inspired by https://github.com/ruohola/finner. Finner layout includes a lot of modifications and uses a US board as a base. This layout does the relevant modifications without touching anything else.
+Inspired by https://github.com/ruohola/finner. Finner layout includes a lot of modifications (AltGr combined with almost any key produces a special character) and uses a US board as a base. This layout does the relevant modifications without touching anything else.
 
 Modifications:
 - `~` and `` ` `` are moved to the left of 1.
