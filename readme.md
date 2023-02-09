@@ -29,9 +29,9 @@ Remove the layout from the list of installed layouts in settings and uninstall i
 
 - Open the root of this repository in a terminal
 - Copy .Xmodmap to home folder `cp .Xmodmap ~/.Xmodmap`
-- The command `xmodmap ~/.Xmodmap` will need to be called after every login. There are multiple ways to achieve this. I use the `Startup Applications` utility in Pop!\_OS. Run `cp xmodmap.desktop ~/.config/autostart/` to add the correct command to autostart.
+- The command `xmodmap ~/.Xmodmap` will need to be called after every login. One way to achieve this is to add the command to `.profile`. Run `echo "xmodmap ~/.Xmodmap" >> ~/.profile`.
 
 ## Linux Uninstallation
 
 - Run `rm ~/.Xmodmap`
-- Run `rm ~/.config/autostart/xmodmap.desktop`
+- Run `sed -i '/xmodmap/d' ~/.profile` if you added the command to `.profile`
