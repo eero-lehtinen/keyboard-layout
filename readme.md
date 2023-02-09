@@ -34,4 +34,4 @@ Remove the layout from the list of installed layouts in settings and uninstall i
 ## Linux Uninstallation
 
 - Run `rm ~/.Xmodmap`
-- Run `sed -i '/xmodmap/d' ~/.profile` if you added the command to `.profile`
+- Run `sed -i '/xmodmap ~\/\.Xmodmap/d' ~/.profile` if you added the command to `.profile`
