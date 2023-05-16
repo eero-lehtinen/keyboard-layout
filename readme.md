@@ -29,10 +29,13 @@ Remove the layout from the list of installed layouts in settings and uninstall i
 
 Select `finnish (classic, no dead keys)` as the keyboard layout.
 
-Install [xremap](https://github.com/k0kubun/xremap) no need for features, just download or build the base version.
+Install [xremap](https://github.com/k0kubun/xremap). No need for features, just download or build the base version.
 
-Set XREMAP_PATH to where you installed xremap. E.g.
+Run the following command with XREMAP_PATH set to where you installed xremap. E.g.
+
 `sudo XREMAP_PATH=/home/eero/.cargo/bin/xremap ./install.sh`
+
+`.Xmodmap` remains because xremap doesn't work with ssh x-forwarding and can be activated for each session with `xmodmap .Xmodmap`.
 
 ## Linux Uninstallation
 
