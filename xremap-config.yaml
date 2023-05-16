@@ -1,0 +1,34 @@
+
+modmap:
+  - name: Global
+    remap:
+      # Num Comma -> Dot
+      KpDot: Dot
+keymap:
+  - name: Global
+    exact_match: true
+    remap:
+      # § -> `
+      Grave: Shift-Equal
+      # ½ -> ~
+      Shift-Grave: Alt_R-RightBrace
+      # ¤ -> ^
+      Shift-4: Shift-RightBrace
+      # ´ -> \
+      Equal: Alt_R-Minus
+      # ` -> |
+      Shift-Equal: Alt_R-102nd
+      # AltGr o -> å
+      Alt_R-O: LeftBrace
+      # AltGr O -> Å
+      Alt_R-Shift-O: Shift-LeftBrace
+      # å -> [
+      LeftBrace: Alt_R-8
+      # Å -> {
+      Shift-LeftBrace: Alt_R-7
+      # ¨ -> ]
+      RightBrace: Alt_R-9
+      # ^ -> }
+      Shift-RightBrace: Alt_R-0
+
+keypress_delay_ms: 10

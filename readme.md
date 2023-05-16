@@ -27,11 +27,13 @@ Remove the layout from the list of installed layouts in settings and uninstall i
 
 ## Linux Installation
 
-- Open the root of this repository in a terminal
-- Copy .Xmodmap to home folder `cp .Xmodmap ~/.Xmodmap`
-- The command `xmodmap ~/.Xmodmap` will need to be called after every login. One way to achieve this is to add the command to `.profile`. Run `echo "xmodmap ~/.Xmodmap" >> ~/.profile`.
+Select `finnish (classic, no dead keys)` as the keyboard layout.
+
+Install [xremap](https://github.com/k0kubun/xremap) no need for features, just download or build the base version.
+
+Set XREMAP_PATH to where you installed xremap. E.g.
+`sudo XREMAP_PATH=/home/eero/.cargo/bin/xremap ./install.sh`
 
 ## Linux Uninstallation
 
-- Run `rm ~/.Xmodmap`
-- Run `sed -i '/xmodmap ~\/\.Xmodmap/d' ~/.profile` if you added the command to `.profile`
+`sudo ./uninstall.sh`

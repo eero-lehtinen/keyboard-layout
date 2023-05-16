@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs xremap
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/xremap /etc/xremap-config.yaml --watch
+
+[Install]
+WantedBy=multi-user.target
