@@ -1,4 +1,3 @@
-
 modmap:
   - name: Global
     remap:
@@ -33,5 +32,3 @@ keymap:
       RightBrace: Alt_R-9
       # ^ -> }
       Shift-RightBrace: Alt_R-0
-
-keypress_delay_ms: 10
