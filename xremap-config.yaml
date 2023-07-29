@@ -4,6 +4,9 @@ modmap:
     remap:
       # Num Comma -> Dot
       KpDot: Dot
+      # Caps Lock -> Ctrl
+      CapsLock: Ctrl_L
+
 keymap:
   - name: Global
     exact_match: true
