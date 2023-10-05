@@ -3,8 +3,10 @@ modmap:
     remap:
       # Num Comma -> Dot
       KpDot: Dot
-      # Caps Lock -> Ctrl
-      CapsLock: Ctrl_L
+      # Caps Lock -> Ctrl or Esc
+      CapsLock:
+        held: Ctrl_L
+        alone: Esc
 
 keymap:
   - name: Global
