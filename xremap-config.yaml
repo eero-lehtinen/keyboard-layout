@@ -38,4 +38,3 @@ keymap:
       Alt-LeftBrace: Alt_R-ALt-8
       # Alt ¨ -> Alt ]
       Alt-RightBrace: Alt_R-Alt-9
-keypress_delay_ms: 4
