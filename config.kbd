@@ -3,6 +3,7 @@
 
 (defcfg
   process-unmapped-keys yes
+  danger-enable-cmd yes
 )
 
 (defsrc
@@ -27,8 +28,8 @@
   l-mod (tap-hold $tap-time $hold-time l lalt)
   ;-mod (tap-hold $tap-time $hold-time ; lmet)
   g-swt (switch
-    ((and lalt (layer default))) (layer-switch gaming) break
-    ((and lalt (layer gaming))) (layer-switch default) break
+    ((and lalt (layer default))) (multi (layer-switch gaming) (cmd notify-send -a "Kanata Layer" -t 1000 -e "~ GAMING ~")) break
+    ((and lalt (layer gaming))) (multi (layer-switch default) (cmd notify-send -a "Kanata Layer" -t 1000 -e " default")) break
     () g break
   )
 )
