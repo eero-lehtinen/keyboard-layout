@@ -18,14 +18,14 @@
 
 (defalias
   caps-esc (tap-hold $tap-time $hold-time esc lctl)
-  a-mod (tap-hold $tap-time $hold-time a lmet)
+  ;; a-mod (tap-hold $tap-time $hold-time a lmet)
   s-mod (tap-hold $tap-time $hold-time s lalt)
   d-mod (tap-hold $tap-time $hold-time d lsft)
   f-mod (tap-hold $tap-time $hold-time f lctl)
   j-mod (tap-hold $tap-time $hold-time j rctl)
   k-mod (tap-hold $tap-time $hold-time k rsft)
   l-mod (tap-hold $tap-time $hold-time l lalt)
-  ;-mod (tap-hold $tap-time $hold-time ; rmet)
+  ;-mod (tap-hold $tap-time $hold-time ; lmet)
   g-swt (switch
     ((and lalt (layer default))) (layer-switch gaming) break
     ((and lalt (layer gaming))) (layer-switch default) break
@@ -62,7 +62,7 @@
 
 (deflayer default
   @caps-esc 
-  @a-mod @s-mod @d-mod @f-mod @g-swt _ @j-mod @k-mod @l-mod @;-mod
+  _ @s-mod @d-mod @f-mod @g-swt _ @j-mod @k-mod @l-mod @;-mod
   .
 )
 
