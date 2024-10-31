@@ -7,7 +7,7 @@
 
 (defsrc
   caps 
-  ;; a s d f g h j k l ; 
+  a s d f g h j k l ; 
   kp.
 )
 
@@ -26,6 +26,11 @@
   k-mod (tap-hold $tap-time $hold-time k rsft)
   l-mod (tap-hold $tap-time $hold-time l lalt)
   ;-mod (tap-hold $tap-time $hold-time ; rmet)
+  g-swt (switch
+    ((and lalt (layer default))) (layer-switch gaming) break
+    ((and lalt (layer gaming))) (layer-switch default) break
+    () g break
+  )
 )
 
 ;; TODO å
@@ -49,10 +54,20 @@
   (rsft [) (ralt 7)
   (lsft ]) (ralt 0)
   (rsft ]) (ralt 0)
+  ;; Allow @, £, $ with normal alt instead of just altgr
+  (lalt 2) (ralt 2)
+  (lalt 3) (ralt 3)
+  (lalt 4) (ralt 4)
 )
 
 (deflayer default
   @caps-esc 
-  ;; @a-mod @s-mod @d-mod @f-mod _ _ @j-mod @k-mod @l-mod @;-mod
+  @a-mod @s-mod @d-mod @f-mod @g-swt _ @j-mod @k-mod @l-mod @;-mod
+  .
+)
+
+(deflayer gaming
+  @caps-esc 
+  _ _ _ _ @g-swt _ @j-mod @k-mod @l-mod @;-mod
   .
 )
