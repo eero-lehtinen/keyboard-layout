@@ -1,0 +1,57 @@
+;; Kanata config
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps 
+  ;; a s d f g h j k l ; 
+  kp.
+)
+
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defalias
+  caps-esc (tap-hold $tap-time $hold-time esc lctl)
+  a-mod (tap-hold $tap-time $hold-time a lmet)
+  s-mod (tap-hold $tap-time $hold-time s lalt)
+  d-mod (tap-hold $tap-time $hold-time d lsft)
+  f-mod (tap-hold $tap-time $hold-time f lctl)
+  j-mod (tap-hold $tap-time $hold-time j rctl)
+  k-mod (tap-hold $tap-time $hold-time k rsft)
+  l-mod (tap-hold $tap-time $hold-time l lalt)
+  ;-mod (tap-hold $tap-time $hold-time ; rmet)
+)
+
+;; TODO å
+
+(defoverrides
+  ;; § -> `
+  (grv) (lsft =)
+  ;; ½ -> ~
+  (lsft grv) (ralt ])
+  (rsft grv) (ralt ])
+  ;; ¤ -> ^
+  (lsft 4) (lsft ])
+  (rsft 4) (rsft ])
+  ;; # ´ -> \
+  (=) (ralt -)
+  ;; square braces
+  ([) (ralt 8)
+  (]) (ralt 9)
+  ;; curly braces
+  (lsft [) (ralt 7)
+  (rsft [) (ralt 7)
+  (lsft ]) (ralt 0)
+  (rsft ]) (ralt 0)
+)
+
+(deflayer default
+  @caps-esc 
+  ;; @a-mod @s-mod @d-mod @f-mod _ _ @j-mod @k-mod @l-mod @;-mod
+  .
+)
