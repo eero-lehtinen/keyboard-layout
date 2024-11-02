@@ -47,6 +47,9 @@
   (rsft 4) (rsft ])
   ;; # ´ -> \
   (=) (ralt -)
+  ;; # S-´ -> |
+  (lsft =) (ralt 102d)
+  (rsft =) (ralt 102d)
   ;; square braces
   ([) (ralt 8)
   (]) (ralt 9)
