@@ -7,7 +7,8 @@
 )
 
 (defsrc
-  caps 
+  grv 4 =
+  caps [ ]
   a s d f g h j k l ; 
   kp.
 )
@@ -32,32 +33,28 @@
     ((and lalt (layer gaming))) (multi (layer-switch default) (cmd notify-send -a "Kanata Layer" -t 1000 -e " default")) break
     () g break
   )
+  left-brace (switch
+    ((or rsft lsft)) (unshift ralt 7) break ;; curly
+    () RA-8 break ;; square
+  )
+  right-brace (switch
+    ((or rsft lsft)) (unshift ralt 0) break ;; curly
+    () RA-9 break ;; square
+  )
+  tick-tilde (switch
+    ((or rsft lsft)) (unshift ralt ]) break ;; ½ -> ~
+    () S-= break ;; § -> `
+  )
+  backslash-pipe (switch
+    ((or rsft lsft)) (unshift ralt 102d) break ;; # S-´ -> | 
+    () RA-- break ;; # ´ -> \
+  )
+  up-carrot (fork 4 S-] (lsft rsft)) ;; ¤ -> ^
 )
 
 ;; TODO å
 
 (defoverrides
-  ;; § -> `
-  (grv) (lsft =)
-  ;; ½ -> ~
-  (lsft grv) (ralt ])
-  (rsft grv) (ralt ])
-  ;; ¤ -> ^
-  (lsft 4) (lsft ])
-  (rsft 4) (rsft ])
-  ;; # ´ -> \
-  (=) (ralt -)
-  ;; # S-´ -> |
-  (lsft =) (ralt 102d)
-  (rsft =) (ralt 102d)
-  ;; square braces
-  ([) (ralt 8)
-  (]) (ralt 9)
-  ;; curly braces
-  (lsft [) (ralt 7)
-  (rsft [) (ralt 7)
-  (lsft ]) (ralt 0)
-  (rsft ]) (ralt 0)
   ;; Allow @, £, $ with normal alt instead of just altgr
   (lalt 2) (ralt 2)
   (lalt 3) (ralt 3)
@@ -65,13 +62,15 @@
 )
 
 (deflayer default
-  @caps-esc 
+  @tick-tilde @up-carrot @backslash-pipe
+  @caps-esc @left-brace @right-brace
   _ @s-mod @d-mod @f-mod @g-swt _ @j-mod @k-mod @l-mod @;-mod
   .
 )
 
 (deflayer gaming
-  @caps-esc 
+  @tick-tilde @up-carrot @backslash-pipe
+  @caps-esc @left-brace @right-brace
   _ _ _ _ @g-swt _ @j-mod @k-mod @l-mod @;-mod
   .
 )
