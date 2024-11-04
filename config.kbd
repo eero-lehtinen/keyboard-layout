@@ -1,5 +1,6 @@
 ;; Kanata config
 ;; ln -s (realpath config.kbd) ~/.config/kanata/config.kbd
+;; https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md
 
 (defcfg
   process-unmapped-keys yes
