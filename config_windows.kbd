@@ -1,0 +1,85 @@
+;; Kanata config
+;; ln -s (realpath config.kbd) ~/.config/kanata/config.kbd
+;; https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md
+
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd yes
+)
+
+(defsrc
+  grv 4 =
+  caps [ ]
+  a s d f g h j k l ; 
+  kp.
+)
+
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defalias 
+  notify-close (cmd snoretoast -close 34556)
+  notify-gaming (cmd snoretoast -id 34556 -t "Kanata Layer" -m "~ GAMING ~")
+  notify-default (cmd snoretoast -id 34556 -t "Kanata Layer" -m "default")
+)
+
+(defalias
+  caps-esc (tap-hold $tap-time $hold-time esc lctl)
+  ;; a-mod (tap-hold $tap-time $hold-time a lmet) {{}{}[][][]}
+  s-mod (tap-hold $tap-time $hold-time s lalt)
+  d-mod (tap-hold $tap-time $hold-time d lsft)
+  f-mod (tap-hold $tap-time $hold-time f lctl)
+  j-mod (tap-hold $tap-time $hold-time j rctl)
+  k-mod (tap-hold $tap-time $hold-time k rsft)
+  l-mod (tap-hold $tap-time $hold-time l lalt)
+  ;-mod (tap-hold $tap-time $hold-time ; lmet)
+  g-swt (switch
+    ((and lalt (layer default))) (multi (layer-switch gaming) @notify-close @notify-gaming) break
+    ((and lalt (layer gaming))) (multi (layer-switch default) @notify-close @notify-default) break
+    () g break
+  )
+  left-brace (switch
+    ((or rsft lsft)) (unshift ralt 7) break ;; curly
+    () RA-8 break ;; square
+  )
+  right-brace (switch
+    ((or rsft lsft)) (unshift ralt 0) break ;; curly
+    () RA-9 break ;; square
+  )
+  tick-tilde (switch
+    ((or rsft lsft)) (unshift ralt ]) break ;; ½ -> ~
+    () S-= break ;; § -> `
+  )
+  backslash-pipe (switch
+    ((or rsft lsft)) (unshift ralt 102d) break ;; # S-´ -> | 
+    () RA-- break ;; # ´ -> \
+  )
+  up-carrot (fork 4 S-] (lsft rsft)) ;; ¤ -> ^
+)
+
+
+
+;; TODO å
+
+(defoverrides
+  ;; Allow @, £, $ with normal alt instead of just altgr
+  (lalt 2) (ralt 2)
+  (lalt 3) (ralt 3)
+  (lalt 4) (ralt 4)
+)
+
+(deflayer default
+  @tick-tilde @up-carrot @backslash-pipe
+  @caps-esc @left-brace @right-brace
+  _ @s-mod @d-mod @f-mod @g-swt _ @j-mod @k-mod @l-mod @;-mod
+  .
+)
+
+(deflayer gaming
+  @tick-tilde @up-carrot @backslash-pipe
+  @caps-esc @left-brace @right-brace
+  _ _ _ _ @g-swt _ @j-mod @k-mod @l-mod @;-mod
+  .
+)
