@@ -5,6 +5,7 @@
 (defcfg
   process-unmapped-keys yes
   danger-enable-cmd yes
+  windows-altgr add-lctl-release
 )
 
 (defsrc
