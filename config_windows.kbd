@@ -76,7 +76,7 @@
   grv @tick-tilde
   4 @up-carrot
   = @backslash-pipe
-  caps esc
+  caps lctl
   [ @left-brace
   ] @right-brace
   g @g-swt
