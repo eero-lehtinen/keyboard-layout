@@ -11,18 +11,14 @@
 (defsrc
 )
 
-;; (defsrc
-;;   grv 4 =
-;;   caps [ ]
-;;   a s d f g h j k l ; 
-;;   kp.
-;; )
-
 
 (defalias 
   notify-close (cmd snoretoast -close 34556)
   notify-gaming (cmd snoretoast -id 34556 -t "Kanata Layer" -m "~ GAMING ~")
   notify-default (cmd snoretoast -id 34556 -t "Kanata Layer" -m "default")
+)
+
+(defalias
   left-brace (switch
     ((or rsft lsft)) (unshift ralt 7) break ;; curly
     () RA-8 break ;; square

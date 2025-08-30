@@ -8,32 +8,14 @@
 )
 
 (defsrc
-  grv 4 =
-  caps [ ]
-  a s d f g h j k l ; 
-  kp.
-)
-
-(defvar
-  tap-time 200
-  hold-time 200
 )
 
 (defalias
-  caps-esc (tap-hold $tap-time $hold-time esc lctl)
-  ;; a-mod (tap-hold $tap-time $hold-time a lmet)
-  s-mod (tap-hold $tap-time $hold-time s lalt)
-  d-mod (tap-hold $tap-time $hold-time d lsft)
-  f-mod (tap-hold $tap-time $hold-time f lctl)
-  j-mod (tap-hold $tap-time $hold-time j rctl)
-  k-mod (tap-hold $tap-time $hold-time k rsft)
-  l-mod (tap-hold $tap-time $hold-time l lalt)
-  ;-mod (tap-hold $tap-time $hold-time ; lmet)
-  g-swt (switch
-    ((and lalt (layer default))) (multi (layer-switch gaming) (cmd notify-send -a "Kanata Layer" -t 1000 -e "~ GAMING ~")) break
-    ((and lalt (layer gaming))) (multi (layer-switch default) (cmd notify-send -a "Kanata Layer" -t 1000 -e " default")) break
-    () g break
-  )
+  notify-gaming (cmd notify-send -a "Kanata Layer" -t 1000 -e "~ GAMING ~")
+  notify-default (cmd notify-send -a "Kanata Layer" -t 1000 -e " default")
+)
+
+(defalias
   left-brace (switch
     ((or rsft lsft)) (unshift ralt 7) break ;; curly
     () RA-8 break ;; square
@@ -53,6 +35,56 @@
   up-carrot (fork 4 S-] (lsft rsft)) ;; ¤ -> ^
 )
 
+(defalias 
+  g-swt (switch
+    ((and lalt (layer default))) (multi (layer-switch gaming) @notify-close @notify-gaming) break
+    ((and lalt (layer gaming))) (multi (layer-switch default) @notify-close @notify-default) break
+    () g break
+  )
+)
+
+(deftemplate charmod (char mod)
+  (switch 
+    ((key-timing 3 less-than 250)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
+)
+
+(deflayermap (default)
+  grv @tick-tilde
+  4 @up-carrot
+  = @backslash-pipe
+  caps esc
+  [ @left-brace
+  ] @right-brace
+  ;; a (t! charmod a lmet)
+  s (t! charmod s lalt)
+  d (t! charmod d lsft)
+  f (t! charmod f lctl)
+  g @g-swt
+  j (t! charmod j rctl)
+  k (t! charmod k rsft)
+  l (t! charmod l lalt)
+  ; (t! charmod ; rmet)
+  kp. .
+)
+
+(deflayermap (gaming)
+  grv @tick-tilde
+  4 @up-carrot
+  = @backslash-pipe
+  caps esc
+  [ @left-brace
+  ] @right-brace
+  g @g-swt
+  j (t! charmod j rctl)
+  k (t! charmod k rsft)
+  l (t! charmod l lalt)
+  ; (t! charmod ; rmet)
+  kp. .
+)
+
+
 ;; TODO å
 
 (defoverrides
@@ -60,18 +92,4 @@
   (lalt 2) (ralt 2)
   (lalt 3) (ralt 3)
   (lalt 4) (ralt 4)
-)
-
-(deflayer default
-  @tick-tilde @up-carrot @backslash-pipe
-  @caps-esc @left-brace @right-brace
-  _ @s-mod @d-mod @f-mod @g-swt _ @j-mod @k-mod @l-mod @;-mod
-  .
-)
-
-(deflayer gaming
-  @tick-tilde @up-carrot @backslash-pipe
-  @caps-esc @left-brace @right-brace
-  _ _ _ _ @g-swt _ @j-mod @k-mod @l-mod @;-mod
-  .
 )
