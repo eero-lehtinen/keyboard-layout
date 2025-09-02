@@ -11,6 +11,7 @@
 )
 
 (defalias
+  notify-close ()
   notify-gaming (cmd notify-send -a "Kanata Layer" -t 1000 -e "~ GAMING ~")
   notify-default (cmd notify-send -a "Kanata Layer" -t 1000 -e " default")
 )
